@@ -1,0 +1,102 @@
+{{> header}}
+    <div class = "main_container--body">
+        <div class = 'table_of_contents'>
+            <h1 class = 'heading'>Table of Contents</h1>
+            <ul>
+                <li><a href = '#Logger'>Logger</a></li>
+                <ul>
+                    <li><a href = '#Loggerlog'>Logger.log()</a></li>
+                    <li><a href = '#Logger'>Logger.warning()</a></li>
+                    <li><a href = '#Logger'>Logger.error()</a></li>
+                    <li><a href = '#Logger'>Logger.trace()</a></li>
+                    <li><a href = '#Logger'>Logger.defaultLog()</a></li>
+                    <li><a href = '#Logger'>Logger.highlight()</a></li>
+                    <li><a href="#Logger">Logger.logHttpRequest()</a></li>
+                </ul>
+            </ul>
+        </div>
+        <div class = 'section' id = 'Logger'>
+            <h1 class = 'heading'>Logger <span class = 'hashtag-link'><a href = '/documentation/v1/logger.html#Logger'>#</a></span></h1>
+            <span class = 'margin-10 code_highlight inline-block'>Path: ./server/lib/logger/Logger.js</span>
+            <ul class = 'theme-list'>
+                <li><a>Dependencies</a></li>
+                <ul class = 'theme-list'>
+                        <li><a href = "https://www.npmjs.com/package/chalk" target="_blank">ChalkJs</a></li>
+                </ul>
+            </ul>
+            <p>
+                The <span class = 'code_highlight'>Logger</span> class provides methods to print logs to terminal and 
+                stores log files in the directory.
+            </p>
+<pre class="prettyprint lang-js">// import logger class
+const Logger = require('logger/Logger'); // relative path needs to be specified
+
+let logger = new Logger(); // create an instance of the class
+
+// log some output 
+logger.log('cool');
+</pre>
+<p>
+    Singleton pattern can also be achieved by using the following code
+</p>
+<pre class="prettyprint lang-js">
+const logger = require('logger'); // creates an instance and exports the same
+
+logger.log('some stuff'); // same instance can be used throughout the application
+</pre>
+<p>
+    The logging methods also stores logs in files when application is not running in production environment. <span class = 'highlight'>
+    <a href = "">Environment</a></span> is
+    specified by using <span class = 'code_highlight'>NODE_ENV</span> variable. The log files are saved by date. The default
+    path for log files is <span class = 'code_highlight'>/etc/logs/</span> but can be changed by passing the options in
+    constructor function. Logger class can be instantiated by using the following options
+</p>
+<pre class="prettyprint lang-js">
+const Logger = require('logger/Logger');
+
+const logOptions = {
+    writeToFile: true // Boolean (true | false) to specify weather logs should be saved to file or not
+    filePath: '/my/awesome/folder' // a directory to specify where to save log files
+}
+
+logger = new Logger(logOptions) // create an instance with specified options
+</pre>
+
+        </div>
+        <div class = 'section' id = "Loggerlog">
+            <h1 class="heading">Logger.log(args)  <span class = 'hashtag-link'><a href = '/documentation/v1/logger.html#Loggerlog'>#</a></span></h1>
+<p class = 'no-top-margin'>The Logger.log(args) calls <span class = 'code_highlight'>console.log(args)</span> if environment is not production. Useful for
+general purpose stdout logging while debugging or looking for a specific output of the program. Does not prints anything in 
+production envrionment.</p>
+<pre class = "prettyprint lang-js">
+// import logger
+const logger = require('logger');
+
+// print something on the console
+logger.log('some cool stuff');
+
+// you can pass multiple arguments
+logger.log('some cool stuff', 'some really cool stuff');
+</pre>
+        </div>
+
+        <div class = 'section' id = "LoggerWarning">
+            <h1 class = "heading">Logger.warning(args) <span class = 'hashtag-link'><a href = '/documenration/v1/logger.html#LoggerWarning'>#</a></span></h1>
+            <p class = 'no-top-margin'>
+                This method works only in test. The Logger.warning(args) method prints orange colored statements. If argument is string, [warning] is prefixed
+            </p>
+<pre class = 'prettyprint lang-js'>
+// import logger
+const logger = require('logger');
+
+// print something on the console
+logger.warning('The call_stack() function has been deprecated, consider using call_queue() instead');
+// output: [warning]: The call_stack() function has been deprecated, consider using call_queue() instead
+
+// you can pass multiple arguments
+logger.warning('some warning', 'some other warning');
+</pre>
+        </div>
+
+    </div>
+{{> footer}}

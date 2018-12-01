@@ -1,0 +1,50 @@
+@import "./colors.scss";
+
+.heading {
+    color: $dark;
+}
+
+.main_container {
+    padding: 35px 35px;
+    margin-left: 234px;
+    background: $light;
+    .main_container--header {
+        ul {
+            display: table;
+            padding: 15px 5px 5px 5px;
+            li {
+                display: table-cell;
+                a {
+                    color: $highlight;
+                }
+            }
+        }
+        h1 {
+            font-size: 2.4rem;
+        }
+    }
+    .main_container--body {
+        .table_of_contents {
+            h1 {
+                font-size: 2rem;
+            }
+            ul {
+                list-style-type: square;
+                padding: 10px 20px 0 20px;
+                li {
+                    padding: 5px 0;
+                    a {
+                        color: $highlight;
+                        padding: 2px;
+                        font-size: 0.9rem;
+                        border-radius: 2px;
+                        &:hover {
+                            color: $light;
+                            background: $highlight;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

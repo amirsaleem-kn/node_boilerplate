@@ -1,0 +1,56 @@
+@import "./colors.scss";
+.sidebar {
+    position: fixed;
+    width: 234px;
+    height: 100%;
+    overflow: auto;
+    background: $dark;
+    padding: 15px 15px;
+    .sidebar--header {
+        .company_home_text {
+            display: block;
+            padding: 0 8px 10px 8px;
+            color: $light_dark;
+            font-size: 1.5rem;
+            font-weight: 700;
+            &:hover {
+                color: $light;
+            }
+        }
+        .about_docs_text {
+            display: block;
+            color: $light_darker;
+            padding: 0 8px 0 8px;
+            font-size: 0.9rem;
+            &:hover {
+                color: $light;
+            }
+        }
+    }
+    .sidebar--body {
+        padding: 0 8px 0 8px;
+        ul {
+            list-style-type: none;
+            li {
+                padding: 8px 0;
+                a {
+                    font-size: 0.9rem;
+                    color: $light_darker;
+                    &:hover {
+                        color: $light;
+                    }
+                    &.active {
+                        color: $highlight;
+                    }
+                }
+            }
+        }
+    }
+    .sidebar--footer {
+        a {
+            color: $light_darker;
+            font-size: 0.8rem;
+            line-height: 20px;
+        }
+    }
+}

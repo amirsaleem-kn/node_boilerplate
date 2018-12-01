@@ -1,0 +1,81 @@
+@import "./colors.scss";
+.line {
+    margin: 15px 0;
+}
+
+.line.line--dark {
+    border-bottom: 1px solid $light_darkest;
+}
+
+.line.line--light {
+    border-bottom: 1px solid $light_darker;
+}
+
+.line.line--margin-10 {
+    margin: 10px 0;
+}
+
+.line.line--margin-15 {
+    margin: 15px 0;
+}
+
+.highlight {
+    color: $highlight;
+    a {
+        color: $highlight;
+        text-decoration: none;
+        &:hover {
+            color: $real_light;
+            background: $highlight;
+        }
+    }
+}
+
+.code_highlight {
+    background-color: #f2f2f2;
+    color: $real_dark;
+    padding: 2px 2px;
+    border-radius: 2px;
+}
+
+.hashtag-link {
+    float: right;
+    font-size: 2.2rem;
+    a {
+        color: $light_darkest;
+        &:hover {
+            color: $highlight;
+        }
+    }
+}
+
+.margin-10 {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+ul.theme-list {
+    list-style-type: square;
+    padding: 10px 20px 0 20px;
+    li {
+        padding: 5px 0;
+        a {
+            color: $highlight;
+            padding: 2px;
+            font-size: 0.9rem;
+            border-radius: 2px;
+            &:hover {
+                color: $light;
+                background: $highlight;
+            }
+        }
+    }
+}
+
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
